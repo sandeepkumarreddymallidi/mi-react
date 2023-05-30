@@ -2,14 +2,15 @@ import React, { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import login from "../../../assets/login.png"
 import axios from "axios"
-import { baseURL } from "../../../Utils/Api/Api"
+// import { baseURL } from "../../../Utils/Api/Api"
 import { getUserData, userDataStore } from "../../../Utils/Utilities/Utilities"
 //import { getUserData } from "../../../Utils/Utilities/Utilities"
 import UserContext from "../../../Utils/Context/UserContext"
 import SetCookie from "../../../Utils/Hooks/setCookie"
 import RemoveCookie from "../../../Utils/Hooks/removeCookie"
-
+const ApiUrl = process.env.API_URL
 const AdminLogin = () => {
+  const baseURL = ApiUrl
   const [valid, setValid] = useState(false)
   const { setIsAuth, isAuth, messageAlert, setIsLoader } =
     useContext(UserContext)
